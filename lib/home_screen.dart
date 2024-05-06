@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: getPostApi(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return const Text('loading');
+                    return const  Center(child: CircularProgressIndicator());
                   } else {
                     return ListView.builder(
                         itemCount: postlist.length,
@@ -56,7 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                 const Text('Title',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                                Text(postlist[index].title.toString()),
+                              //  Text(postlist[index].title.toString()), OR
+                                Text('Title: ${postlist[index].title}'),
+                                Text('id: ${postlist[index].id}'),
                                const SizedBox(height: 5,),
                                  const Text('Description',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                                 Text(postlist[index].body.toString()),
@@ -68,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 }),
           ),
+       
         ],
       ),
     );
