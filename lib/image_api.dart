@@ -15,8 +15,7 @@ class _ImageApiState extends State<ImageScreen> {
   List<ImageModel> imagelist = [];
 
   Future<List<ImageModel>> getImageApi() async {
-    final response = await http
-        .get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
@@ -67,9 +66,7 @@ class _ImageApiState extends State<ImageScreen> {
                                     height: 5,
                                   ),
                                   //Text('url: ${imagelist[index].url}'), just printing the text
-                                  Image.network(
-                                    
-                                    imagelist[index].url ?? ''),
+                                  Image.network(imagelist[index].url ?? ''),
                                   const SizedBox(
                                     height: 5,
                                   ),
